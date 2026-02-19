@@ -1,0 +1,66 @@
+<header>
+  <h1>EduFuture Sync</h1>
+  <nav>
+    <a id="navLogin">تسجيل دخول</a>
+    <a id="navDashboard">لوحة الطالب</a>
+    <a id="navTeacher">لوحة المعلمين</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>تعلم بذكاء وبحسب مستواك</h2>
+  <p>منصة تعليمية تكيفية لجميع المراحل التعليمية.</p>
+  <button class="btn" id="startBtn">ابدأ الآن</button>
+</section>
+
+<div class="login-container" id="loginSection">
+  <h2>تسجيل الدخول التجريبي</h2>
+  <input type="text" id="username" placeholder="اسم المستخدم">
+  <input type="password" id="password" placeholder="كلمة المرور">
+  <button id="loginBtn">دخول</button>
+  <p id="loginMsg"></p>
+</div>
+
+<div class="dashboard-container hidden" id="dashboardSection">
+  <h2>لوحة تحكم الطالب</h2>
+  <div class="student-info">
+    <p id="studentName"></p>
+    <p id="levelInfo"></p>
+    <p id="scoreInfo"></p>
+  </div>
+  <div class="recommendations">
+    <h3>المواد الموصى بها لك</h3>
+    <ul id="recommendedList"></ul>
+  </div>
+  <div class="tests">
+    <h3>اختبارات مقترحة</h3>
+    <ul id="testsList"></ul>
+  </div>
+  <div class="charts">
+    <h3>تحليلات الأداء</h3>
+    <canvas id="scoreChart" width="400" height="200"></canvas>
+  </div>
+</div>
+
+<div class="teacher-dashboard hidden" id="teacherSection">
+  <h2>لوحة تحكم المعلمين</h2>
+  <table class="teacher-table" id="teacherTable">
+    <tr>
+      <th>ID</th>
+      <th>الاسم</th>
+      <th>المستوى</th>
+      <th>النتيجة</th>
+      <th>التوصيات</th>
+    </tr>
+  </table>
+</div>
+
+<footer>
+  <p>&copy; 2026 EduFuture Sync | كل الحقوق محفوظة</p>
+</footer>
+<p class="codepen" data-height="500" data-theme-id="light" data-slug-hash="xxxxx" data-default-tab="html,result" data-user="username" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/username/pen/xxxxx">
+      EduFuture Sync</a> by username (<a href="https://codepen.io/username">@username</a>)
+    on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>

@@ -1,0 +1,134 @@
+// Chart.js
+const students = [
+  {
+    id: 1,
+    name: "محمد",
+    level: 2,
+    score: 85,
+    recommendations: ["درس الكسور", "علوم طبيعية", "النصوص الأدبية"],
+    tests: ["اختبار الرياضيات", "اختبار اللغة العربية"],
+    scores: [80, 85, 90]
+  },
+  {
+    id: 2,
+    name: "ليلى",
+    level: 1,
+    score: 70,
+    recommendations: ["الحروف والأرقام", "علوم ابتدائية"],
+    tests: ["اختبار الحروف", "اختبار الأرقام"],
+    scores: [65, 70, 75]
+  }
+];
+
+let currentStudent = null;
+
+// التنقل بين الأقسام
+document
+  .getElementById("navLogin")
+  .addEventListener("click", () => showSection("login"));
+document
+  .getElementById("navDashboard")
+  .addEventListener("click", () => showSection("dashboard"));
+document
+  .getElementById("navTeacher")
+  .addEventListener("click", () => showSection("teacher"));
+document
+  .getElementById("startBtn")
+  .addEventListener("click", () => showSection("login"));
+
+function showSection(section) {
+  document.getElementById("loginSection").classList.add("hidden");
+  document.getElementById("dashboardSection").classList.add("hidden");
+  document.getElementById("teacherSection").classList.add("hidden");
+  if (section === "login")
+    document.getElementById("loginSection").classList.remove("hidden");
+  if (section === "dashboard")
+    document.getElementById("dashboardSection").classList.remove("hidden");
+  if (section === "teacher")
+    document.getElementById("teacherSection").classList.remove("hidden");
+}
+
+// تسجيل الدخول
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const student = students.find((s) => s.name === username);
+  if (student && password === "1234") {
+    currentStudent = student;
+    document.getElementById("loginMsg").textContent = "تم تسجيل الدخول بنجاح!";
+    document.getElementById("loginMsg").style.color = "green";
+    showDashboard(student);
+    showSection("dashboard");
+  } else {
+    document.getElementById("loginMsg").textContent =
+      "اسم المستخدم أو كلمة المرور غير صحيحة";
+    document.getElementById("loginMsg").style.color = "red";
+  }
+});
+
+// عرض لوحة تحكم الطالب
+function showDashboard(student) {
+  document.getElementById(
+    "studentName"
+  ).textContent = `مرحبًا، ${student.name}!`;
+  document.getElementById(
+    "levelInfo"
+  ).textContent = `مستواك الحالي: المستوى ${student.level}`;
+  document.getElementById(
+    "scoreInfo"
+  ).textContent = `درجاتك: ${student.score}%`;
+
+  // التوصيات
+  const recList = document.getElementById("recommendedList");
+  recList.innerHTML = "";
+  student.recommendations.forEach((r) => {
+    const li = document.createElement("li");
+    li.textContent = r;
+    recList.appendChild(li);
+  });
+
+  // الاختبارات
+  const testList = document.getElementById("testsList");
+  testList.innerHTML = "";
+  student.tests.forEach((t) => {
+    const li = document.createElement("li");
+    li.textContent = t;
+    testList.appendChild(li);
+  });
+
+  // الرسوم البيانية
+  const ctx = document.getElementById("scoreChart").getContext("2d");
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: ["المهمة 1", "المهمة 2", "المهمة 3"],
+      datasets: [
+        {
+          label: "درجات الطالب",
+          data: student.scores,
+          borderColor: "#004aad",
+          backgroundColor: "rgba(0,74,173,0.2)",
+          fill: true
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: { y: { beginAtZero: true, max: 100 } }
+    }
+  });
+}
+
+// عرض لوحة المعلمين
+function showTeacherDashboard() {
+  const table = document.getElementById("teacherTable");
+  students.forEach((s) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${s.id}</td><td>${s.name}</td><td>${s.level}</td><td>${
+      s.score
+    }%</td><td>${s.recommendations.join(", ")}</td>`;
+    table.appendChild(tr);
+  });
+}
+showTeacherDashboard();

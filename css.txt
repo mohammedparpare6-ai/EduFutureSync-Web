@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", sans-serif;
+  direction: rtl;
+  background: #f9f9f9;
+  color: #333;
+}
+a {
+  text-decoration: none;
+}
+header {
+  background: linear-gradient(90deg, #004aad, #00aaff);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+header nav a {
+  color: white;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+header nav a:hover {
+  color: #ffeb3b;
+}
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: #e0f7ff;
+  border-radius: 0 0 50% 50%/0 0 10% 10%;
+}
+.hero h2 {
+  font-size: 2.2em;
+  color: #004aad;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+.btn {
+  background: #004aad;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #00aaff;
+}
+.login-container,
+.dashboard-container,
+.teacher-dashboard {
+  max-width: 700px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.hidden {
+  display: none;
+}
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background: #004aad;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.student-info,
+.recommendations,
+.tests {
+  margin: 15px 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+.teacher-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.teacher-table th,
+.teacher-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+.teacher-table th {
+  background: #e0f7ff;
+}
+canvas {
+  margin-top: 20px;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #004aad;
+  color: white;
+  margin-top: 30px;
+}
